@@ -4,10 +4,10 @@ import time
 from common import HTMLTestRunnerPlugins
 from common import sendEmail
 import getpathInfo
-from common import readConfig
+# from common import readConfig
 
-read_conf = readConfig.ReadConfig()
-on_off = read_conf.get_email('on_off')
+# read_conf = readConfig.ReadConfig()
+on_off = 'on'
 
 # 获取测试用例的文件夹
 case_dir = './testcase'
