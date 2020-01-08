@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import unittest
 import time
-import HTMLTestRunnerPlugins
+from common import HTMLTestRunnerPlugins
 from common import sendEmail
 import getpathInfo
 from common import readConfig
