@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 import os
-from common import configparser
+# from common import configparser
 import getpathInfo  # 引入我们自己的写的获取路径的类
 
 path = getpathInfo.get_Path()  # 调用实例化，这个类返回的路径为当前项目所在路径
