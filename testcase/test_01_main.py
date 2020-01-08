@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from interface.interface import Interface
 import unittest
 from common.getKeyword import get_result_for_keyword, get_results_for_label_keyword, get_results_for_keyword

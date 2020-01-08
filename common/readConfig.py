@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import os
 import configparser
 import getpathInfo  # 引入我们自己的写的获取路径的类
