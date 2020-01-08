@@ -9,12 +9,12 @@ from common import readConfig
 import time
 from common.Log import logger
 
-read_conf = readConfig.ReadConfig()
-subject = read_conf.get_email('subject')  # 从配置文件中读取，邮件主题
+# read_conf = readConfig.ReadConfig()
+# subject = read_conf.get_email('subject')  # 从配置文件中读取，邮件主题
 now = time.strftime("%Y_%m_%d %H-%M")  # 获取发送邮件的时间
-app = str(read_conf.get_email('app'))  # 从配置文件中读取，邮件类型
-addressee = read_conf.get_email('addressee')  # 从配置文件中读取，邮件收件人
-cc = read_conf.get_email('cc')  # 从配置文件中读取，邮件抄送人
+# app = str(read_conf.get_email('app'))  # 从配置文件中读取，邮件类型
+# addressee = read_conf.get_email('addressee')  # 从配置文件中读取，邮件收件人
+# cc = read_conf.get_email('cc')  # 从配置文件中读取，邮件抄送人
 mail_path = os.path.join(getpathInfo.get_Path(), 'report', 'report.html')  # 获取测试报告路径
 logger = logger
 
@@ -22,7 +22,7 @@ class SendEmail:
 
     def sendEmail(self):
         # 1.准备发送邮件的基本信息
-        smtpserver = app
+        smtpserver = 'smtp.163.com'
         sender = "yt18782452291@163.com"
         password = "YTZY01201216"
         addresses = [sender,'228289351@qq.com']
@@ -33,7 +33,7 @@ class SendEmail:
         message = MIMEMultipart()
         message['from'] = sender
         message['to'] = ";".join(addresses)
-        message['subject'] = subject+now
+        message['subject'] = "接口自动化测试报告"+now
         # 编辑正文
         text = "接口测试自动化报告"
         body = MIMEText(_text=text, _subtype='plain', _charset='utf-8')
