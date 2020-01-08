@@ -5,7 +5,7 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import getpathInfo
-from common import readConfig
+# from common import readConfig
 import time
 from common.Log import logger
 
