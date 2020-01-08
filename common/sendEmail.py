@@ -1,3 +1,5 @@
+# _*_ coding: utf-8 _*_
+
 import smtplib
 import os
 from email.mime.text import MIMEText
