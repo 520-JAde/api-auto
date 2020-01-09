@@ -25,7 +25,7 @@ class SendEmail:
         smtpserver = 'smtp.163.com'
         sender = "yt18782452291@163.com"
         password = "YTZY01201216"
-        addresses = [sender,'228289351@qq.com']
+        addresses = [sender,'yangtao@neurongenius.com','fujia@neurongenius.com','liuyuehong@neurongenius.com','zhouxinwei@neurongenius.com']
         # ,'fujia@neurongenius.com'
 
         # 2.编辑邮件
