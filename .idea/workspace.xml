@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84414f48-43e4-409e-816b-81ab535731f3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/interface/bespeak.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interface/preparation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/test_02_preparation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RunAllCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/RunAllCase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/configHttp.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/configHttp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/getKeyword.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/getKeyword.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/sendEmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/sendEmail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface/interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/logs" beforeDir="false" afterPath="$PROJECT_DIR$/report/logs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/logs.2020-01-06" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/test_01_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/test_01_main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,32 +24,95 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_02_preparation_TestPreparation_test_02_check.coverage" NAME="Unittests for test_02_preparation.TestPreparation.test_02_check Coverage Results" MODIFIED="1579244596692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
     <SUITE FILE_PATH="coverage/neuron_api$RunAllCase.coverage" NAME="RunAllCase Coverage Results" MODIFIED="1578552124532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/neuron_api$interface.coverage" NAME="interface Coverage Results" MODIFIED="1579075601257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/interface" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_02_preparation_TestPreparation_test_03_update.coverage" NAME="Unittests for test_02_preparation.TestPreparation.test_03_update Coverage Results" MODIFIED="1579247139455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_02_preparation_TestPreparation_test_04_delete.coverage" NAME="Unittests for test_02_preparation.TestPreparation.test_04_delete Coverage Results" MODIFIED="1579255912877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_02_preparation_TestPreparation_test_01_add.coverage" NAME="Unittests for test_02_preparation.TestPreparation.test_01_add Coverage Results" MODIFIED="1579247210694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$preparation.coverage" NAME="preparation Coverage Results" MODIFIED="1579164056377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/interface" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_03_bespeak_TestBespeak_test_02_check.coverage" NAME="Unittests for test_03_bespeak.TestBespeak.test_02_check Coverage Results" MODIFIED="1579256842695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_01_main_TestMain_test_02_order.coverage" NAME="Unittests for test_01_main.TestMain.test_02_order Coverage Results" MODIFIED="1579162426025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_03_bespeak_TestBespeak_test_01_add.coverage" NAME="Unittests for test_03_bespeak.TestBespeak.test_01_add Coverage Results" MODIFIED="1579256274214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
+    <SUITE FILE_PATH="coverage/neuron_api$test.coverage" NAME="test Coverage Results" MODIFIED="1579248975094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/neuron_api$Unittests_for_test_01_main_TestMain_test_01_newcustomer.coverage" NAME="Unittests for test_01_main.TestMain.test_01_newcustomer Coverage Results" MODIFIED="1579075770172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testcase" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.ini">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="RunAllCase.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="1749">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#25#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <file leaf-file-name="getKeyword.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/getKeyword.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" column="103" lean-forward="true" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
+            <state relative-caret-position="363">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configHttp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/configHttp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1980">
+              <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
               <folding>
-                <element signature="e#25#39#0" expanded="true" />
+                <element signature="e#22#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bespeak.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/interface/bespeak.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1617">
+              <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
+              <folding>
+                <element signature="e#24#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preparation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/interface/preparation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1089">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+              <folding>
+                <element signature="e#24#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_03_bespeak.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/test_03_bespeak.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2112">
+              <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunAllCase.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -58,17 +133,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/config.ini" />
-        <option value="$PROJECT_DIR$/testcase/test_01_main.py" />
-        <option value="$PROJECT_DIR$/interface/interface.py" />
-        <option value="$PROJECT_DIR$/common/configHttp.py" />
-        <option value="$PROJECT_DIR$/common/getKeyword.py" />
         <option value="$PROJECT_DIR$/common/operationExcel.py" />
         <option value="$PROJECT_DIR$/getpathInfo.py" />
         <option value="$PROJECT_DIR$/common/configparser.py" />
         <option value="$PROJECT_DIR$/common/readConfig.py" />
         <option value="$PROJECT_DIR$/common/Log.py" />
-        <option value="$PROJECT_DIR$/RunAllCase.py" />
+        <option value="$PROJECT_DIR$/interface/interface.py" />
+        <option value="$PROJECT_DIR$/common/getKeyword.py" />
+        <option value="$PROJECT_DIR$/testcase/test_01_main.py" />
+        <option value="$PROJECT_DIR$/interface/consultation.py" />
         <option value="$PROJECT_DIR$/common/sendEmail.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/common/configHttp.py" />
+        <option value="$PROJECT_DIR$/interface/preparation.py" />
+        <option value="$PROJECT_DIR$/testcase/test_02_preparation.py" />
+        <option value="$PROJECT_DIR$/interface/bespeak.py" />
+        <option value="$PROJECT_DIR$/testcase/test_03_bespeak.py" />
+        <option value="$PROJECT_DIR$/RunAllCase.py" />
       </list>
     </option>
   </component>
@@ -92,7 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,10 +185,26 @@
               <item name="neuron_api" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="neuron_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neuron_api" type="462c0819:PsiDirectoryNode" />
+              <item name="interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neuron_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neuron_api" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="neuron_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neuron_api" type="462c0819:PsiDirectoryNode" />
+              <item name="testcase" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -133,8 +229,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="RunAllCase" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Unittests for test_03_bespeak.TestBespeak.test_02_check">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="neuron_api" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -147,15 +243,82 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RunAllCase.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="Unittests for test_02_preparation.TestPreparation.test_01_add" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="neuron_api" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_02_preparation.TestPreparation.test_01_add&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_02_preparation.TestPreparation.test_04_delete" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="neuron_api" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_02_preparation.TestPreparation.test_04_delete&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_03_bespeak.TestBespeak.test_01_add" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="neuron_api" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_03_bespeak.TestBespeak.test_01_add&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="neuron_api" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_03_bespeak.TestBespeak.test_02_check&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.Unittests for test_02_preparation.TestPreparation.test_01_add" />
+      <item itemvalue="Python tests.Unittests for test_02_preparation.TestPreparation.test_04_delete" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python tests.Unittests for test_03_bespeak.TestBespeak.test_01_add" />
+      <item itemvalue="Python tests.Unittests for test_03_bespeak.TestBespeak.test_02_check" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RunAllCase" />
+        <item itemvalue="Python tests.Unittests for test_03_bespeak.TestBespeak.test_02_check" />
+        <item itemvalue="Python tests.Unittests for test_03_bespeak.TestBespeak.test_01_add" />
+        <item itemvalue="Python tests.Unittests for test_02_preparation.TestPreparation.test_04_delete" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python tests.Unittests for test_02_preparation.TestPreparation.test_01_add" />
       </list>
     </recent_temporary>
   </component>
@@ -172,18 +335,49 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_test_02_preparation_TestPreparation_test_04_delete - 2020.01.17 at 18h 11m 54s.xml">
+      <configuration name="Unittests for test_02_preparation.TestPreparation.test_04_delete" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_01_add - 2020.01.17 at 18h 17m 55s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_01_add" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 19m 38s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 21m 17s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 25m 32s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 26m 09s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 26m 50s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 27m 04s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 27m 12s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_03_bespeak_TestBespeak_test_02_check - 2020.01.17 at 18h 27m 24s.xml">
+      <configuration name="Unittests for test_03_bespeak.TestBespeak.test_02_check" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5103599" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -206,6 +400,155 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/getKeyword.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/getKeyword.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2706">
+          <caret line="84" column="11" lean-forward="true" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1089">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1089">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/common/connectdb.py" />
     <entry file="file://C:/Program Files/Python36/Lib/configparser.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -215,35 +558,150 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/configparser.py" />
-    <entry file="file://$PROJECT_DIR$/common/configHttp.py" />
-    <entry file="file://$PROJECT_DIR$/common/getKeyword.py" />
-    <entry file="file://$PROJECT_DIR$/interface/interface.py" />
     <entry file="file://$PROJECT_DIR$/common/Log.py" />
     <entry file="file://$PROJECT_DIR$/common/operationExcel.py" />
     <entry file="file://$PROJECT_DIR$/common/readConfig.py" />
     <entry file="file://$PROJECT_DIR$/getpathInfo.py" />
-    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py" />
     <entry file="file://C:/Program Files/Python36/Lib/HTMLTestRunnerPlugins.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/common/HTMLTestRunnerPlugins.py" />
     <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/teamcity/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_01_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2211">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_04_reception.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+    <entry file="file://$PROJECT_DIR$/testcase/test_05_consultation.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_06_consultationAss.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/consultation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="165">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/consultationAss.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="801">
+          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="356" selection-start-line="356" selection-end-line="356" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/getKeyword.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_02_preparation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/sendEmail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="103" lean-forward="true" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
+        <state relative-caret-position="1749">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/configHttp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
+          <folding>
+            <element signature="e#22#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/preparation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1089">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+          <folding>
+            <element signature="e#24#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/bespeak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1617">
+          <caret line="52" column="61" selection-start-line="52" selection-start-column="61" selection-end-line="52" selection-end-column="61" />
+          <folding>
+            <element signature="e#24#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test_03_bespeak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunAllCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
         </state>
       </provider>
     </entry>

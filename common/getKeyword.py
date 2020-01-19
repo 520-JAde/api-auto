@@ -22,6 +22,7 @@ def get_results_for_keyword(data, keyword):
     return jsonpath.jsonpath(data, f"$..{keyword}")
 
 
+
 def get_results_for_label_keyword(data, label, keyword):
     """
     通过上层的标签,获取关键字对应的所有数据

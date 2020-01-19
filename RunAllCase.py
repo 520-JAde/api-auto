@@ -26,7 +26,8 @@ file = open(report_dir + '\\' + 'report.html', 'wb')
 runner = HTMLTestRunnerPlugins.HTMLTestRunner(
                                         stream=file,
                                         title='接口自动化测试报告',
-                                        description='预约--接待--咨询--开单--缴费--核销--出库',
+                                        description='预约--接待--咨询--开单--缴费--核销--出库'
+                                                    '报备增删改查-预约增删改查-接待增删改查-咨询增删改查-面诊增删改查',
                                         verbosity=2,
                                         retry=0
                                         )

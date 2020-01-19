@@ -26,7 +26,8 @@ class SendEmail:
         sender = "yt18782452291@163.com"
         password = "YTZY01201216"
         addresses = [sender,'yangtao@neurongenius.com','fujia@neurongenius.com','liuyuehong@neurongenius.com','zhouxinwei@neurongenius.com']
-        # ,'fujia@neurongenius.com'
+        # 'fujia@neurongenius.com','liuyuehong@neurongenius.com','zhouxinwei@neurongenius.com'
+
 
         # 2.编辑邮件
         # 创建一个带附件的邮件

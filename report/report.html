@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+.img{
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+    border: 2px solid #777;
+}
+
+.screenshots {
+    z-index: 100;
+	position:absolute;
+	left: 23%;
+	top: 20%;
+	display: none;
+}
+.close_shots {
+	position:absolute;
+	top:0; left:98%;
+	z-index:99;
+	width:20px;
+}
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+
+.piechart{
+    position:absolute;  ;
+    top:20px;
+    left:300px;
+    width: 200px;
+    float: left;
+    display:  inline;
+}
+
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+function drawCircle(pass, fail, error){
+    var color = ["#6c6","#c60","#c00"];
+    var data = [pass,fail,error];
+    var text_arr = ["pass", "fail", "error"];
+
+    var canvas = document.getElementById("circle");
+    var ctx = canvas.getContext("2d");
+    var startPoint=0;
+    var width = 20, height = 10;
+    var posX = 112 * 2 + 20, posY = 30;
+    var textX = posX + width + 5, textY = posY + 10;
+    for(var i=0;i<data.length;i++){
+        ctx.fillStyle = color[i];
+        ctx.beginPath();
+        ctx.moveTo(112,84);
+        ctx.arc(112,84,84,startPoint,startPoint+Math.PI*2*(data[i]/(data[0]+data[1]+data[2])),false);
+        ctx.fill();
+        startPoint += Math.PI*2*(data[i]/(data[0]+data[1]+data[2]));
+        ctx.fillStyle = color[i];
+        ctx.fillRect(posX, posY + 20 * i, width, height);
+        ctx.moveTo(posX, posY + 20 * i);
+        ctx.font = 'bold 14px';
+        ctx.fillStyle = color[i];
+        var percent = text_arr[i] + ":"+data[i];
+        ctx.fillText(percent, textX, textY + 20 * i);
+
+    }
+}
+
+function show_shots(obj) {
+	obj.nextElementSibling.style.display="block";
+
+}
+
+function close_shots(obj) {
+	obj.parentElement.style.display="none";
+}
+
+</script>
+<div class="piechart">
+    <div>
+        <canvas id="circle" width="350" height="168" </canvas>
+    </div>
+</div>
+<div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2020-01-19 00:28:54</p>
+<p class='attribute'><strong>耗时:</strong> 0:00:24.178383</p>
+<p class='attribute'><strong>状态:</strong> <span class="tj passCase">Pass</span>25 <span class="tj failCase">Failure</span>2</p>
+
+<p class='description'>预约--接待--咨询--开单--缴费--核销--出库</p>
+</div>
+
+
+
+<p id='show_detail_line'>显示
+<a href='javascript:showCase(0)'>概要</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>所有</a>
+</p>
+
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试组/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>视图</td>
+    <td>错误截图</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_01_main.TestMain: 主流程</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',7)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_newcustomer</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        通过</a></span>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 测试开始
+{
+  "msg": "成功获取数据，数据非空",
+  "code": 10001,
+  "data": {
+    "msg": "",
+    "data": {
+      "name": "孙云",
+      "id": "d3f32d16a5acc369127461b248413619"
+    }
+  }
+}
+成功获取数据，数据非空
+新建客户的ID为： d3f32d16a5acc369127461b248413619
+断言成功，接口正常请求
+新建客户成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_order: 预约</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        通过</a></span>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 测试开始
+{
+  "msg": "新建预约成功",
+  "code": 10000,
+  "data": null
+}
+断言成功，接口正常请求
+预约成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td ><div class='testcase'>test_03_reception: 接待</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        通过</a></span>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 测试开始
+对返回数据进行断言
+新增接待成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td ><div class='testcase'>test_04_consultation</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        通过</a></span>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: 测试开始
+接口请求成功
+返回数据为: {
+  "msg": "操作成功",
+  "code": 10000,
+  "data": {
+    "errorMsg": []
+  }
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td ><div class='testcase'>test_05_cashier: 开单</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        通过</a></span>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 测试开始
+对开单进行断言
+开单成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td ><div class='testcase'>test_06_payment: 缴费</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        通过</a></span>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: 测试开始
+对缴费是否成功进行断言
+缴费成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td ><div class='testcase'>test_07_verification: 核销</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        通过</a></span>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: 测试开始
+核销成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_02_preparation.TestPreparation: 报备测试类</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',4)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_add: 新增报备</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        通过</a></span>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 测试开始
+断言成功
+新增成功,返回参数为: {
+  "msg": "添加成功",
+  "code": 10000,
+  "data": null
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_check: 查看报备接口</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        通过</a></span>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: 测试开始
+断言成功
+查看报备接口正常，返回参数为： {
+  "msg": "查询成功",
+  "code": 10000,
+  "data": {
+    "autoFlag": 0,
+    "deptName": "皮肤科",
+    "projects": [
+      {
+        "projectName": "皮肤科",
+        "projectId": "dict_04a4a7b39efb6221db26b9ea3bfebd2a"
+      }
+    ],
+    "nextNum": 7,
+    "endDate": null,
+    "nearReceptionTime": null,
+    "preChannelId": null,
+    "phoneList": [
+      "13982417803"
+    ],
+    "sourceTypeDetailAll": "",
+    "ifRecord": 0,
+    "checkName": null,
+    "preUserName": "YT",
+    "nextChecker": "[\"1\", \"4185e868a7c867c69aed1f87ecbe2f5d\", \"421ef8488f39e8d809a7a97eee301278\", \"877a0ced8a26bde96eceff6c742321c2\", \"a1c9a9e971edd8e12abd7e738358a0af\", \"d8ffa4fe7948b0625f2f1e5e9b129c0a\", \"f907251af90d97e7d89d40cbe1212206\", \"9d84c6ac6e0d2696ba815c935408417e\"]",
+    "sourceTypeDetailType": "",
+    "stateName": "待审核",
+    "preDeptId": "bfb24660a14d9be2f9d2e7a0af7e4b87",
+    "id": "1d42e07592a2988c0c3f676ee504c2c1",
+    "checkDetails": null,
+    "preWebPid": null,
+    "ifBillingName": "否",
+    "directFlag": false,
+    "preOtherRemark": null,
+    "checkSwitch": true,
+    "ifCome": 0,
+    "preOldUserName": null,
+    "customerName": [
+      {
+        "name": "崔刚",
+        "ismain": 1
+      }
+    ],
+    "approvalSetting": "[{\"userId\": [\"1\", \"4185e868a7c867c69aed1f87ecbe2f5d\", \"421ef8488f39e8d809a7a97eee301278\", \"877a0ced8a26bde96eceff6c742321c2\", \"a1c9a9e971edd8e12abd7e738358a0af\", \"d8ffa4fe7948b0625f2f1e5e9b129c0a\", \"f907251af90d97e7d89d40cbe1212206\", \"9d84c6ac6e0d2696ba815c935408417e\"], \"indexing\": 1, \"directFlag\": false}]",
+    "checkTime": null,
+    "preTypeAll": "自然到院",
+    "ifComeName": "否",
+    "preTypeId": "5",
+    "ifPay": 0,
+    "firstReceptionTime": null,
+    "preChannelName": "",
+    "ifPermission": 1,
+    "fileId": [],
+    "status": 0,
+    "checkBy": null,
+    "updateDate": 1579167253000,
+    "comeDate": null,
+    "remark": null,
+    "nearVisitTime": null,
+    "preOldUserId": null,
+    "delFlag": false,
+    "preWebName": "",
+    "customerPhone": [
+      {
+        "phone": "13982417803",
+        "ismain": 1,
+        "disableTwo": false
+      }
+    ],
+    "preUserId": "9d84c6ac6e0d2696ba815c935408417e",
+    "updateBy": "9d84c6ac6e0d2696ba815c935408417e",
+    "empName": null,
+    "customerId": null,
+    "createDate": 1579167253000,
+    "approvalStatus": 0,
+    "ifRecordName": "未建档",
+    "preTypeName": "自然到院",
+    "preWebRemark": null,
+    "ifPayName": "否",
+    "ifBilling": 0,
+    "checkRemark": null,
+    "dateFlag": "-",
+    "preChannelPid": null,
+    "dutyName": null,
+    "preWebId": null,
+    "createBy": "9d84c6ac6e0d2696ba815c935408417e",
+    "step": 1,
+    "showMsg": []
+  }
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td ><div class='testcase'>test_03_update: 编辑报备信息接口</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        通过</a></span>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: 测试开始
+修改后名字为： 孔博
+修改后手机号为： 15385660169
+断言成功
+新增成功,返回参数为: {
+  "msg": "修改成功",
+  "code": 10000,
+  "data": null
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td ><div class='testcase'>test_04_delete: 删除报备信息接口</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        通过</a></span>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: 测试开始
+断言成功
+删除报备接口正常，返回参数为： {
+  "msg": "删除成功",
+  "code": 10000,
+  "data": null
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_03_bespeak.TestBespeak: 预约测试类</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',4)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_add: 新增预约</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        通过</a></span>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 测试开始
+{
+  "msg": "新建预约成功",
+  "code": 10000,
+  "data": null
+}
+断言成功，接口正常请求
+预约成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_check: 查看预约</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        通过</a></span>
+
+    <div id='div_pt3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.2: 测试开始
+断言成功，接口正常请求
+预约成功,返回数据为: {'code': 10001, 'msg': '成功获取数据，数据非空'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td ><div class='testcase'>test_03_update: 修改预约数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        通过</a></span>
+
+    <div id='div_pt3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.3: 测试开始
+{
+  "msg": "操作成功",
+  "code": 10000,
+  "data": null
+}
+断言成功，接口正常请求
+预约成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td ><div class='testcase'>test_04_delete: 删除预约数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.4')" >
+        通过</a></span>
+
+    <div id='div_pt3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.4: 测试开始
+断言成功，接口正常请求
+预约成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_04_reception.TestReception: 接待测试类</td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',4)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_add: 新增接待</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        通过</a></span>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 测试开始
+{
+  "msg": "该客户已有接待信息",
+  "code": 20000,
+  "data": null
+}
+断言成功，接口正常请求
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_check: 查看接待</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        通过</a></span>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: 测试开始
+断言成功
+查看接待成功请求,返回数据为: {
+  "msg": "操作成功",
+  "code": 10000,
+  "data": {
+    "reception": {
+      "assistReceiverId": "",
+      "assistReceiverName": "",
+      "autoFlag": 1,
+      "bespeakId": "",
+      "createBy": "9d84c6ac6e0d2696ba815c935408417e",
+      "createDate": 1579364742000,
+      "createDateL": 1579364742000,
+      "customerId": "c0c4dadb50ac390d3b5ca33145950d0b",
+      "delFlag": false,
+      "flowNo": "",
+      "id": "5b83857c9dc04057ac4b4d471acb1754",
+      "immediateTreatFlag": false,
+      "importType": 0,
+      "leaveFlag": false,
+      "receiverId": "9d84c6ac6e0d2696ba815c935408417e",
+      "receiverName": "YT",
+      "receptionProject": "[]",
+      "receptionType": "other",
+      "receptionTypeName": "其他",
+      "receptionTypeRemark": "",
+      "remark": "",
+      "triageToUserId": "9d84c6ac6e0d2696ba815c935408417e",
+      "triageToUserName": "YT",
+      "updateBy": "9d84c6ac6e0d2696ba815c935408417e",
+      "updateDate": 1579364802000,
+      "updateDateL": 1579364802000,
+      "urgentFlag": false
+    },
+    "bespeak": null,
+    "canUpdateFlag": false
+  }
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='ft4.3' class='none'>
+    <td ><div class='testcase'>test_03_update: 修改接待数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status failCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        失败</a></span>
+
+    <div id='div_ft4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.3: 测试开始
+Traceback (most recent call last):
+  File "D:\neuron_api\neuron_api\testcase\test_04_reception.py", line 69, in test_03_update
+    if self.assertEqual ("保存成功", res) == None:
+AssertionError: '保存成功' != '客户已完成接诊，无法修改'
+- 保存成功
++ 客户已完成接诊，无法修改
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='ft4.4' class='none'>
+    <td ><div class='testcase'>test_04_delete: 删除接待数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status failCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.4')" >
+        失败</a></span>
+
+    <div id='div_ft4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.4: 测试开始
+Traceback (most recent call last):
+  File "D:\neuron_api\neuron_api\testcase\test_04_reception.py", line 83, in test_04_delete
+    if self.assertEqual (res, "操作成功") == None:
+AssertionError: '当前接待已产生业务，不能作废' != '操作成功'
+- 当前接待已产生业务，不能作废
++ 操作成功
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_05_consultation.TestConsultation: 咨询测试类</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',4)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_add: 新增咨询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        通过</a></span>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 测试开始
+{
+  "msg": "操作成功",
+  "code": 10000,
+  "data": "8604d747857758a8f9e88368962c42bd"
+}
+断言成功，接口正常请求
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_check: 查看咨询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+        通过</a></span>
+
+    <div id='div_pt5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.2: 测试开始
+断言成功，接口正常请求
+咨询查看的接口返回参数为: {'code': 10000, 'msg': '查询成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td ><div class='testcase'>test_03_update: 修改咨询数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+        通过</a></span>
+
+    <div id='div_pt5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.3: 测试开始
+断言成功，接口正常请求
+返回结果为: {
+  "msg": "操作成功",
+  "code": 10000,
+  "data": "2d8aff5e85b36427ac65b18a1a57c000"
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td ><div class='testcase'>test_04_delete: 删除咨询数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+        通过</a></span>
+
+    <div id='div_pt5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.4: 测试开始
+接口正常请求
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_06_consultationAss.TestConsultationAss: 面诊测试类</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',4)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td ><div class='testcase'>test_01_add: 新增面诊</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        通过</a></span>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 测试开始
+断言成功，接口正常请求
+请求返回数据为: {
+  "msg": "操作成功",
+  "code": 10000,
+  "data": "c306287e60d0c6bb97ac77dfa243a7bd"
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td ><div class='testcase'>test_02_check: 查看面诊</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        通过</a></span>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.2: 测试开始
+断言成功，接口正常请求
+该条面诊记录为: {
+  "msg": "成功获取数据，数据非空",
+  "code": 10001,
+  "data": {
+    "plasticRemark": "",
+    "queueId": "32789c16d27f7092e041a4a599a61a72",
+    "diagnosisLs": null,
+    "consultationReceptionType": "1",
+    "purposePros": "[]",
+    "channelTypeRemark": "",
+    "updateBtnFlag": 1,
+    "sureBtnFlag": 0,
+    "channelType": null,
+    "receptionId": "5b83857c9dc04057ac4b4d471acb1754",
+    "type": 2,
+    "toUserId": null,
+    "uid": "32789c16d27f7092e041a4a599a61a72",
+    "pros": [],
+    "plasticFlagName": "否",
+    "sleepState": "",
+    "customerId": "c0c4dadb50ac390d3b5ca33145950d0b",
+    "statusName": "已确认",
+    "startTime": 1579364803000,
+    "id": "f6e590a408851b889c524ab4ca7d131a",
+    "purPros": [],
+    "createDate": 1579364803000,
+    "plasticFlag": null,
+    "consultationReceptionTypeName": "咨询",
+    "allergyFlagName": "否",
+    "types": [],
+    "customerRemark": "测试新增面诊",
+    "bellyState": "",
+    "nowPill": null,
+    "handleRemark": "测试新增面诊",
+    "diagnosis": null,
+    "jsonPros": "[]",
+    "userName": "YT",
+    "userId": "9d84c6ac6e0d2696ba815c935408417e",
+    "undealRemark": "",
+    "customerName": "user3",
+    "assistantId": null,
+    "receptionRemark": "",
+    "purTypes": [],
+    "createBy": "9d84c6ac6e0d2696ba815c935408417e",
+    "monthState": "",
+    "sureStatus": 1,
+    "nowPillRemark": "",
+    "toUserName": null,
+    "flowNo": null,
+    "endTime": 1579364803000,
+    "undealType": "",
+    "handledFlag": 1
+  }
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td ><div class='testcase'>test_03_update: 修改面诊数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.3')" >
+        通过</a></span>
+
+    <div id='div_pt6.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.3: 测试开始
+{'msg': '操作成功', 'code': 10000, 'data': '32789c16d27f7092e041a4a599a61a72'}
+断言成功，接口正常请求
+修改面诊后返回参数: {
+  "msg": "操作成功",
+  "code": 10000,
+  "data": "f98400250688e1dc792ed45b0410c639"
+}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td ><div class='testcase'>test_04_delete: 删除面诊数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status passCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.4')" >
+        通过</a></span>
+
+    <div id='div_pt6.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.4: 测试开始
+接口正常请求
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td></td>
+</tr>
+
+<tr id='total_row'>
+    <td>统计</td>
+    <td>27</td>
+    <td>25</td>
+    <td>2</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+<script>
+    drawCircle(25, 2, 0)
+</script>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

@@ -36,7 +36,7 @@ class TestMain(unittest.TestCase):
         self.token = {
             'Authorization': res
         }
-        # print(self.token)
+
 
     def test_01_newcustomer(self):
         """
@@ -96,11 +96,14 @@ class TestMain(unittest.TestCase):
         header = self.token
         response = Interface().consultation(header)
         result = json.dumps(response, ensure_ascii=False, indent=2)
-        print(result)
         res = get_result_for_keyword(response, 'msg')
-        if self.assertEqual(res, "已经有该客户咨询") == None:
+        if res == '已经有该客户咨询':
+            self.assertTrue(1)
+            print ("接口请求成功")
+            print ("但是当前已有该客户咨询")
+        elif res== '操作成功':
             print("接口请求成功")
-            print("但是当前已有该客户咨询")
+            print("返回数据为:",result)
         else:
             print('断言失败')
 
