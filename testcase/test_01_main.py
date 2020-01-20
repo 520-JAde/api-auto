@@ -38,27 +38,27 @@ class TestMain(unittest.TestCase):
         }
 
 
-    def test_01_newcustomer(self):
-        """
-        新增客户
-        :return:
-        """
-        header = self.token
-        response = Interface().newcustomer(header)
-        result = json.dumps(response, ensure_ascii=False, indent=2)
-        print(result)
-        res = get_result_for_keyword(response, 'msg')
-        id = get_result_for_keyword(response, 'id')
-        print(res)
-        # res = str(res)
-        print('新建客户的ID为：', id)
-        # self.assertEqual(res, '操作成功')
-        if self.assertEqual(res, '成功获取数据，数据非空') == None:
-            print('断言成功，接口正常请求')
-            print('新建客户成功')
-        else:
-            print('断言失败')
-        return id
+    # def test_01_newcustomer(self):
+    #     """
+    #     新增客户
+    #     :return:
+    #     """
+    #     header = self.token
+    #     response = Interface().newcustomer(header)
+    #     result = json.dumps(response, ensure_ascii=False, indent=2)
+    #     print(result)
+    #     res = get_result_for_keyword(response, 'msg')
+    #     id = get_result_for_keyword(response, 'id')
+    #     print(res)
+    #     # res = str(res)
+    #     print('新建客户的ID为：', id)
+    #     # self.assertEqual(res, '操作成功')
+    #     if self.assertEqual(res, '成功获取数据，数据非空') == None:
+    #         print('断言成功，接口正常请求')
+    #         print('新建客户成功')
+    #     else:
+    #         print('断言失败')
+    #     return id
 
     def test_02_order(self):
         """预约"""
